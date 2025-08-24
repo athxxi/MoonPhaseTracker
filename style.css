@@ -1,0 +1,208 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+.fullscreen-phase {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #000000 0%, #0a0a2a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.moon-container {
+    text-align: center;
+    z-index: 10;
+}
+
+.today-heading {
+    font-size: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    color: #8a8aff;
+    text-shadow: 0 0 10px rgba(138, 138, 255, 0.5);
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .today-heading {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .today-heading {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+}
+
+#currentMoonImg {
+    width: 450px;
+    height: 450px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+}
+
+.moon-info {
+    margin-top: 30px;
+}
+
+#currentPhaseName {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #8a8aff, #5d5dff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#currentDate {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid #8a8aff;
+    border-bottom: 2px solid #8a8aff;
+    transform: rotate(45deg);
+    margin: 0 auto;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+.next-days {
+    background: #000;
+    padding: 80px 20px;
+}
+
+.next-days h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #8a8aff;
+}
+
+.moon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.moon-day {
+    background: rgba(20, 20, 40, 0.6);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(100, 100, 150, 0.2);
+}
+
+.moon-day:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(90, 90, 150, 0.2);
+}
+
+.moon-date {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #94a3b8;
+}
+
+.moon-icon {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.moon-icon img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.moon-phase {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #a3a3ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #currentMoonImg {
+        width: 200px;
+        height: 200px;
+    }
+    
+    #currentPhaseName {
+        font-size: 2rem;
+    }
+    
+    .moon-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #currentMoonImg {
+        width: 300px;
+        height: 300px;
+    }
+    
+    #currentPhaseName {
+        font-size: 1.5rem;
+    }
+    
+    .moon-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+}
